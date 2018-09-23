@@ -5,18 +5,15 @@
     <color name="colorAccent">#9ebca0</color>
 
 
-    <! -   tons de cinza   ->
-    <color  name="white">#F0F0F0</ color >
-    <color  name ="gray_light">#DBDBDB</color >
-    <color  name ="grey">#939393</color >
-    <color  name ="gray_dark">#565656</ olor >
-    <color  name ="black">#000000</color >
+    <color  name="white">#F0F0F0</color>
+    <color  name ="gray_light">#DBDBDB</color>
+    <color  name ="grey">#939393</color>
+    <color  name ="gray_dark">#565656</color>
+    <color  name ="black">#000000</color>
 
-    <!--  transparent  -->
     <color name="transparent_white">#99FFFFFF</color>
     <color name="transparent_black">#99323232</color>
 
-    <!--  basic colors  -->
     <color name="green">#27D34D</color>
     <color name="blue_light">#e8e8e8</color>
     <color name="blue">#0f8bff</color>
