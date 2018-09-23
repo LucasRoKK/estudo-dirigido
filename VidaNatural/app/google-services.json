@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "221569880463",
+    "firebase_url": "https://vida-natural-2.firebaseio.com",
+    "project_id": "vida-natural-2",
+    "storage_bucket": "vida-natural-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221569880463:android:1b15d251464f4f2b",
+        "android_client_info": {
+          "package_name": "com.ljl.vidanatural"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "221569880463-rdrjd4d4ua3j5psfnr009fvtr28fbmgt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNrMV6n50M6fzs9wmtz6Uyt69nbuX3KiM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
