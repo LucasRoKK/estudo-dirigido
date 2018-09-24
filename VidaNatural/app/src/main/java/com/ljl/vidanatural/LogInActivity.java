@@ -25,6 +25,7 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
 
     public static final int SING_IN_CODE = 777;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
