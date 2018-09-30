@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Vida Natural</string>
-    <string name="not_log_in">Não se pode inicial seção</string>
+    <string name="not_log_in">Sessão não iniciada!</string>
     <string name="logoapp">Logo</string>
     <string name='login'>Login</string>
 </resources>
