@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Vida Natural</string>
+    <string name="facebook_app_id">2140220736305500</string>
+    <string name="fb_login_protocol_scheme">fb2140220736305500</string>
     <string name="not_log_in">Sessão não iniciada!</string>
     <string name="logoapp">Logo</string>
     <string name='login'>Login</string>

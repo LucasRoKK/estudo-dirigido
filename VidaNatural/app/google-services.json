@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "221569880463-qvjbb2qic2fah8tedu0b6i5mmfom5b0j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ljl.vidanatural",
+            "certificate_hash": "540a55a7ec0e56c6bc29ff53c0f036e0e2c063b2"
+          }
+        },
+        {
           "client_id": "221569880463-rdrjd4d4ua3j5psfnr009fvtr28fbmgt.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "221569880463-rdrjd4d4ua3j5psfnr009fvtr28fbmgt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
