@@ -37,16 +37,14 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
 
     private SignInButton signInButton;
 
+    public static final int SING_IN_CODE = 777;
+
     //Facebook
     private LoginButton mLoginButtom;
 
     private FirebaseAuth mFirebaseAuth;
 
     private CallbackManager mCallbackManager;
-    //Final Facebook
-
-    public static final int SING_IN_CODE = 777;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +101,7 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Intent i = new Intent(LogInActivity.this, MainActivity.class);
+                            Intent i = new Intent(LogInActivity.this, TermoDeUsoActivity.class);
                             startActivity(i);
                         }else{
                             alert("Erro de autenticação com o Firebase");
@@ -154,7 +152,7 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
     }
 
     private void goMainScreen() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, TermoDeUsoActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

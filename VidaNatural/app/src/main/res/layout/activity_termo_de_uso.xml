@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal|center_vertical"
+    tools:context=".TermoDeUsoActivity">
+
+    <TextView
+        android:id="@+id/termoUso"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/font_termo"
+        android:textStyle="bold"
+        android:text="TERMO DE USO DO APLICATIVO" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="110dp" />
+
+    <TextView
+        android:id="@+id/texto"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/font_large"
+        android:text="Ao realizar o cadastro para utilização do Aplicativo, o usuário se submeterá
+automaticamente às regras e condições deste Termo de Uso." />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+    <Button
+        android:id="@+id/btnAceito"
+        android:layout_width="@dimen/button_width_bigger"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="proximaTela"
+        android:text="Aceito" />
+</LinearLayout>

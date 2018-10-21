@@ -14,21 +14,31 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:contentDescription="@string/logoapp"
-        app:layout_constraintBottom_toTopOf="@+id/SignInButtom"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/logo" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_large" />
+
     <com.facebook.login.widget.LoginButton
         android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="108dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/imageView4" />
+
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="@dimen/spacing_normal" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/SignInButtom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="176dp"
+        android:layout_height="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
