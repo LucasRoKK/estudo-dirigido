@@ -1,9 +1,12 @@
-package com.ljl.vidanatural;
+package com.ljl.vidanatural.util;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+
+import com.ljl.vidanatural.activity.LogInActivity;
+import com.ljl.vidanatural.activity.TermoDeUsoActivity;
 
 public class MainActivity extends AppCompatActivity {
 

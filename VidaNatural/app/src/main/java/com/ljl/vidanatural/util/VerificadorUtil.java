@@ -1,9 +1,10 @@
-package com.ljl.vidanatural;
+package com.ljl.vidanatural.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 import com.google.gson.Gson;
+import com.ljl.vidanatural.model.Perfil;
 
 public class VerificadorUtil {
 

@@ -1,4 +1,4 @@
-package com.ljl.vidanatural;
+package com.ljl.vidanatural.model;
 
 import com.google.gson.annotations.SerializedName;
 

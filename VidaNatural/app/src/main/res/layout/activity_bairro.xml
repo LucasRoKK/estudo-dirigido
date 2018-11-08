@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".BairroActivity">
+    tools:context=".activity.BairroActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="LOCALIZAÇÃO POR REGIÕES"
+                android:text="@string/localiza_o_por_regi_es"
                 android:textSize="@dimen/font_large"
                 android:textStyle="bold"
                 android:textColor="@color/white"/>
@@ -34,41 +34,55 @@
 
     </android.support.design.widget.AppBarLayout>
 
-
-    <TextView
-        android:id="@+id/textView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:gravity="center"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="195dp"
-        android:text="INFORME O SEU BAIRRO"
-        android:textSize="@dimen/font_larger"
-        android:textStyle="bold" />
+        android:layout_height="match_parent">
 
-    <Space
-        android:id="@+id/spacer"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_extralarger"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="224dp" />
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical">
 
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spacer"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:gravity="center"
-        android:spinnerMode="dropdown" />
+            <TextView
+                android:id="@+id/text_bairro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:text="@string/informe_o_seu_bairro"
+                android:textSize="@dimen/font_larger"
+                android:textStyle="bold" />
+
+                <Space
+                    android:id="@+id/spacer"
+                    android:layout_below="@id/text_bairro"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="50dp"
+                    android:layout_height="@dimen/spacing_extralarger"
+                    android:layout_alignParentTop="true" />
+
+                <Spinner
+                    android:id="@+id/spinner1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spacer"
+                    android:layout_marginTop="0dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown" />
+
+                <Button
+                    android:id="@+id/btnAvancar"
+                    android:layout_width="@dimen/button_width_bigger"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spinner1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="42dp"
+                    android:onClick="proximaTela"
+                    android:text="Avançar" />
+
+            </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
