@@ -72,8 +72,13 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
                 startActivityForResult(intent, SING_IN_CODE);
             }
         });
+
+        // Sucesso ao efetuar login
+        VerificadorUtil.setLogado(this, true);
     }
 
+
+    //FACEBOOK
     private void clickButton() {
         mLoginButtom.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -92,6 +97,10 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
             }
         });
     }
+
+
+
+
 
     private void firebaseLogin(AccessToken accessToken) {
         AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
@@ -149,6 +158,8 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
             Toast.makeText(this, R.string.not_log_in, Toast.LENGTH_SHORT).show();
         }
 
+
+
     }
 
     private void goMainScreen() {
@@ -156,4 +167,6 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
+
+
 }
