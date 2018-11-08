@@ -17,7 +17,7 @@ public class TermoDeUsoActivity extends AppCompatActivity {
 
     public void proximaTela(View view){
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, BairroActivity.class);
         startActivity(intent);
     }
 }

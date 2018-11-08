@@ -16,6 +16,7 @@
     <dimen name="font_termo">40sp</dimen>
 
     <!--  typical spacing between two views  -->
+    <dimen name="spacing_extralarger">70dp</dimen>
     <dimen name="spacing_larger">32dp</dimen>
     <dimen name="spacing_large">24dp</dimen>
     <dimen name="spacing_normal">16dp</dimen>

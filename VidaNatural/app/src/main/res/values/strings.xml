@@ -5,4 +5,7 @@
     <string name="not_log_in">Sessão não iniciada!</string>
     <string name="logoapp">Logo</string>
     <string name='login'>Login</string>
+    <string name="title_activity_bairro">BairroActivity</string>
+    <string name="localiza_o_por_regi_es">LOCALIZAÇÃO POR REGIÕES</string>
+    <string name="informe_o_seu_bairro">INFORME O SEU BAIRRO</string>
 </resources>

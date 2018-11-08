@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TermoDeUsoActivity"></activity>
+        <activity android:name=".TermoDeUsoActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -41,6 +41,10 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".BairroActivity"
+            android:label="@string/title_activity_bairro"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
