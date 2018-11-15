@@ -8,4 +8,7 @@
     <string name="title_activity_bairro">BairroActivity</string>
     <string name="localiza_o_por_regi_es">LOCALIZAÇÃO POR REGIÕES</string>
     <string name="informe_o_seu_bairro">INFORME O SEU BAIRRO</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

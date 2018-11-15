@@ -20,6 +20,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.TermoDeUsoActivity" />
+        <activity
+            android:name=".activity.BairroActivity"
+            android:label="@string/title_activity_bairro"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity android:name=".activity.HomeActivity"/>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -41,10 +47,6 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.BairroActivity"
-            android:label="@string/title_activity_bairro"
-            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

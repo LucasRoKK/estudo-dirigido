@@ -19,7 +19,7 @@ public class BairroActivity extends AppCompatActivity {
 
     public void proximaTela(View view){
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 }
