@@ -7,11 +7,44 @@
     tools:context=".fragments.TelaUsuario">
 
     <!-- TODO: Update blank fragment layout -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user_img_foto"
+        android:layout_width="match_parent"
+        android:layout_height="157dp"
+        android:src="@mipmap/ic_launcher" />
+
     <TextView
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:textSize="25sp"
+        android:id="@+id/user_txt_nome"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TELA #1"/>
+        android:layout_below="@id/user_img_foto"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="23dp"
+        android:textSize="@dimen/font_larger"
+        android:textStyle="bold"
+        android:text="Nome do usuário"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/user_txt_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_txt_nome"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="21dp"
+        android:textSize="@dimen/font_large"
+        android:text="E-mail"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/user_btn_logout"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_txt_email"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="Sair" />
 
 </RelativeLayout>
