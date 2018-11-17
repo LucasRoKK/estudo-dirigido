@@ -55,7 +55,7 @@
                     android:layout_below="@id/pic_txt_nome"
                     android:layout_alignParentEnd="true"
                     android:textSize="@dimen/font_small"
-                    android:text="Mais informações"/>
+                    android:text="Mais informações" />
 
             </RelativeLayout>
 

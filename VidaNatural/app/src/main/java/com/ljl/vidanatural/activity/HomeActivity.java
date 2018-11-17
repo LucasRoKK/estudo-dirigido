@@ -46,4 +46,5 @@ public class HomeActivity extends AppCompatActivity {
 
         tabs.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
     }
+
 }

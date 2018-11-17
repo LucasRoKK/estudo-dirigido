@@ -54,6 +54,7 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
         clickButton();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
@@ -95,10 +96,6 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
             }
         });
     }
-
-
-
-
 
     private void firebaseLogin(AccessToken accessToken) {
         AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
@@ -155,8 +152,6 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
         } else {
             Toast.makeText(this, R.string.not_log_in, Toast.LENGTH_SHORT).show();
         }
-
-
 
     }
 

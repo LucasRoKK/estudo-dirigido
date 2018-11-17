@@ -11,6 +11,9 @@ public class Perfil {
     @SerializedName("email")
     private String mEmail = "";
 
+    @SerializedName("token")
+    private String mToken = "";
+
     // Transient: o campo nao eh tranformado em json
     private transient String endereco = "";
 
@@ -28,6 +31,14 @@ public class Perfil {
 
     public void setEmail(final String email) {
         mEmail = email;
+    }
+
+    public String getToken() {
+        return mToken;
+    }
+
+    public void setToken(final String token) {
+        mToken = token;
     }
 }
 
