@@ -15,7 +15,7 @@ import com.ljl.vidanatural.fragments.TelaMapa;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity    extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     private TelaUsuario mTela1;
     private TelaPIC mTela2;
