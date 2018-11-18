@@ -13,12 +13,9 @@ public class TermoDeUsoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_termo_de_uso);
-
-
     }
 
     public void proximaTela(View view){
-
         Intent intent = new Intent(this, BairroActivity.class);
         startActivity(intent);
     }

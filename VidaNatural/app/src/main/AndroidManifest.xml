@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".util.MainActivity" />
+        <activity android:name=".util.MainActivity" >
+        </activity>
         <activity android:name=".activity.LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -21,7 +21,8 @@
         <activity
             android:name=".activity.BairroActivity"
             android:label="@string/title_activity_bairro"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme">
+        </activity>
         <activity android:name=".activity.HomeActivity" />
 
         <meta-data
@@ -47,7 +48,8 @@
         <activity
             android:name=".activity.InfoPicActivity"
             android:label="@string/title_activity_info_pic"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>

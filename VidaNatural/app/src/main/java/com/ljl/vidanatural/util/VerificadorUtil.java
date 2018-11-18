@@ -59,11 +59,5 @@ public class VerificadorUtil {
         Gson gson = new Gson();
         return  gson.fromJson(json, Perfil.class);
     }
-
-
-
-
-
-
 }
 

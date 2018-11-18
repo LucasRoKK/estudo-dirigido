@@ -2,7 +2,6 @@ package com.ljl.vidanatural.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ljl.vidanatural.R;
 import com.ljl.vidanatural.activity.LogInActivity;
-import com.ljl.vidanatural.model.Perfil;
 
 public class TelaUsuario extends Fragment {
 
