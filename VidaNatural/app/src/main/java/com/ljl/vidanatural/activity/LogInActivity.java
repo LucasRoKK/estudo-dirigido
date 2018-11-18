@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -19,14 +18,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ljl.vidanatural.R;
 import com.ljl.vidanatural.util.VerificadorUtil;
+import com.ljl.vidanatural.model.Perfil;
 
 public class LogInActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
@@ -43,6 +40,9 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
     private FirebaseAuth mFirebaseAuth;
 
     private CallbackManager mCallbackManager;
+
+    //Salva dados
+    Perfil perfil = new Perfil();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +63,10 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
-        signInButton = (SignInButton) findViewById(R.id.SignInButtom);
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
-                startActivityForResult(intent, SING_IN_CODE);
-            }
+        signInButton = findViewById(R.id.SignInButtom);
+        signInButton.setOnClickListener(v -> {
+            Intent intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
+            startActivityForResult(intent, SING_IN_CODE);
         });
 
         // Sucesso ao efetuar login
@@ -101,15 +98,15 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
         AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
 
         mFirebaseAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            Intent i = new Intent(LogInActivity.this, TermoDeUsoActivity.class);
-                            startActivity(i);
-                        }else{
-                            alert("Erro de autenticação com o Firebase");
-                        }
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()){
+                        perfil.setNome(mFirebaseAuth.getCurrentUser().getDisplayName());
+                        perfil.setEmail(mFirebaseAuth.getCurrentUser().getEmail());
+                        perfil.setToken(mFirebaseAuth.getCurrentUser().getUid());
+                        Intent i = new Intent(LogInActivity.this, TermoDeUsoActivity.class);
+                        startActivity(i);
+                    }else{
+                        alert("Erro de autenticação com o Firebase");
                     }
                 });
     }
@@ -125,7 +122,7 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
 
 
     private void inicializarComponente() {
-        mLoginButtom = (LoginButton) findViewById(R.id.btnLogin);
+        mLoginButtom = findViewById(R.id.log_btn_facebook);
         mLoginButtom.setReadPermissions("email", "public_profile");
     }
 
@@ -160,6 +157,5 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
-
 
 }

@@ -23,7 +23,6 @@
         android:layout_marginTop="23dp"
         android:textSize="@dimen/font_larger"
         android:textStyle="bold"
-        android:text="Nome do usuário"
         android:textAlignment="center" />
 
     <TextView
@@ -33,10 +32,9 @@
         android:layout_below="@id/user_txt_nome"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="21dp"
-        android:textSize="@dimen/font_large"
-        android:text="E-mail"
-        android:textAlignment="center" />
+        android:layout_marginTop="7dp"
+        android:textAlignment="center"
+        android:textSize="@dimen/font_large" />
 
     <Button
         android:id="@+id/user_btn_logout"
