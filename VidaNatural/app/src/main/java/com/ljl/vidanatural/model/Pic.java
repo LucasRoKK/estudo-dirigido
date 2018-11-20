@@ -1,31 +1,83 @@
 package com.ljl.vidanatural.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Pic {
 
-    private String mNome = "";
-    private String mFoto = "";
+    @SerializedName("id")
+    @Expose
+    private String id;
+    @SerializedName("nome")
+    @Expose
+    private String nome;
+    @SerializedName("descricao")
+    @Expose
+    private String descricao;
+    @SerializedName("foto")
+    @Expose
+    private String foto;
+    @SerializedName("url")
+    @Expose
+    private String url;
 
-    public Pic () {this("", "");}
+    public Pic() {
+    }
 
-    public Pic (final String nome, final String foto) {
-        mNome = nome;
-        mFoto = foto;
+    /**
+     * @param id
+     * @param nome
+     * @param descricao
+     * @param foto
+     * @param url
+     */
+    public Pic(String id, String nome, String descricao, String foto, String url) {
+        super();
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.foto = foto;
+        this.url = url;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNome() {
-        return mNome;
+        return nome;
     }
 
-    public void setNome(final String nome) {
-        mNome = nome;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public String getFoto() {
-        return mFoto;
+        return foto;
     }
 
-    public void setFoto(final String foto) {
-        mFoto = foto;
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
 }
