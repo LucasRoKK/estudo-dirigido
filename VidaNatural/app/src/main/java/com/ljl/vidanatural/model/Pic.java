@@ -1,3 +1,4 @@
+
 package com.ljl.vidanatural.model;
 
 import com.google.gson.annotations.Expose;
@@ -20,25 +21,6 @@ public class Pic {
     @SerializedName("url")
     @Expose
     private String url;
-
-    public Pic() {
-    }
-
-    /**
-     * @param id
-     * @param nome
-     * @param descricao
-     * @param foto
-     * @param url
-     */
-    public Pic(String id, String nome, String descricao, String foto, String url) {
-        super();
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.foto = foto;
-        this.url = url;
-    }
 
     public String getId() {
         return id;
@@ -79,5 +61,6 @@ public class Pic {
     public void setUrl(String url) {
         this.url = url;
     }
+
 
 }

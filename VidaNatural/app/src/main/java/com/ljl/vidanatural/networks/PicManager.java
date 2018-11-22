@@ -6,11 +6,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PicManager {
-    private static final String URL = "http://services.koruthos.com.br/api/pic/read.php";
+    private static final String URL = "http://services.koruthos.com.br/api/";
     private static PicManager sInstance = new PicManager();
 
     private final Retrofit mRetrofit;
-    private final PlaceHolderServices mService;
+    private final PicServices mService;
 
     private PicManager() {
 
@@ -24,7 +24,7 @@ public class PicManager {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        mService = mRetrofit.create(PlaceHolderServices.class);
+        mService = mRetrofit.create(PicServices.class);
     }
 
     public static PicManager getInstance() {
@@ -32,7 +32,7 @@ public class PicManager {
         return sInstance;
     }
 
-    public static PlaceHolderServices service() {
+    public static PicServices service() {
         return getInstance().mService;
     }
 

@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -15,10 +16,6 @@
         <activity android:name=".util.MainActivity" >
         </activity>
         <activity android:name=".activity.LogInActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".activity.TermoDeUsoActivity" />
         <activity
@@ -26,8 +23,12 @@
             android:label="@string/title_activity_bairro"
             android:theme="@style/AppTheme">
         </activity>
-        <activity android:name=".activity.HomeActivity" />
-
+        <activity android:name=".activity.HomeActivity">
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />

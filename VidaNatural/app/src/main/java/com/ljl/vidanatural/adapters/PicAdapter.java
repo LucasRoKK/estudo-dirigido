@@ -1,22 +1,76 @@
 package com.ljl.vidanatural.adapters;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-public class PicAdapter extends RecyclerView.Adapter {
+import com.bumptech.glide.Glide;
+import com.ljl.vidanatural.databinding.ItemPicBinding;
+import com.ljl.vidanatural.model.Pic;
 
-    @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+import java.util.List;
+
+
+public class PicAdapter extends RecyclerView.Adapter<PicAdapter.ViewHolder> {
+
+    private final List<Pic> mPics;
+    private final PicListener mListener;
+
+    public PicAdapter(List<Pic> pics, PicListener listener){
+        mPics = pics;
+        mListener = listener;
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public ViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        ItemPicBinding binding = ItemPicBinding.inflate(layoutInflater, parent, false);
+        return new ViewHolder(binding);
+    }
 
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        Pic pic = mPics.get(position);
+        holder.bind(pic);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mPics.size();
+    }
+
+    public interface PicListener{
+        void onLoadMore();
+        void onMaisInfoClick(Pic pic);
+    }
+
+    class ViewHolder extends RecyclerView.ViewHolder  {
+
+        private ItemPicBinding mBinding;
+
+        public ViewHolder(ItemPicBinding binding) {
+            super(binding.getRoot());
+            mBinding = binding;
+        }
+
+        void bind(Pic pic) {
+
+            mBinding.picBtnInfo.setOnClickListener(view -> {
+                mListener.onMaisInfoClick(pic);
+            });
+
+
+            // Carrega a imagem na image view
+            Glide.with(mBinding.getRoot())
+                    .load(pic.getFoto()) // carrega a imagem de uma url
+                    .into(mBinding.picImgFoto); // qual componente deve receber a imagem
+
+            // Esta chamada deve ser a ultima
+            // Responsavel por atualizar as amarracoes na tala
+            mBinding.setPic(pic);
+            mBinding.executePendingBindings();
+        }
+
     }
 }
