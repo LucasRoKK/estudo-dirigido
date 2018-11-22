@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".activity.HomeActivity">
 
+
+    //teste ApresentaçãoGestãoDeProjetos
+    //ALOU PROFESSOR
+
     <android.support.design.widget.TabLayout
         android:id="@+id/viewpager_tabs"
         android:layout_width="match_parent"
