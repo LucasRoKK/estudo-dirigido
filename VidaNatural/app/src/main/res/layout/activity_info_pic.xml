@@ -36,37 +36,47 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/info_img_foto"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="68dp"
-        android:src="@mipmap/ic_launcher"
-        tools:ignore="RtlCompat" />
-
-    <TextView
-        android:id="@+id/info_txt_nome"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/info_img_foto"
-        android:layout_marginTop="130dp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="@dimen/font_larger"
-        android:text="Nome da PIC"
-        tools:ignore="RtlCompat" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/info_txt_desc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/info_img_foto"
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:textSize="@dimen/font_large"
-        android:text="Texto da PIC, onde será passado detalhes de como é realizado, sua origem e curiosidades."/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/info_img_foto"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="68dp"
+                android:src="@mipmap/ic_launcher"
+                tools:ignore="RtlCompat" />
+
+            <TextView
+                android:id="@+id/info_txt_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/info_img_foto"
+                android:layout_marginTop="130dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_larger"
+                tools:ignore="RtlCompat" />
+
+            <TextView
+                android:id="@+id/info_txt_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/info_img_foto"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:textSize="@dimen/font_large" />
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

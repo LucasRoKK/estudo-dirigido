@@ -60,17 +60,12 @@ public class PicAdapter extends RecyclerView.Adapter<PicAdapter.ViewHolder> {
                 mListener.onMaisInfoClick(pic);
             });
 
-
-            // Carrega a imagem na image view
             Glide.with(mBinding.getRoot())
-                    .load(pic.getFoto()) // carrega a imagem de uma url
-                    .into(mBinding.picImgFoto); // qual componente deve receber a imagem
+                    .load(pic.getFoto())
+                    .into(mBinding.picImgFoto);
 
-            // Esta chamada deve ser a ultima
-            // Responsavel por atualizar as amarracoes na tala
             mBinding.setPic(pic);
             mBinding.executePendingBindings();
         }
-
     }
 }

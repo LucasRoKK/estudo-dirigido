@@ -1,16 +1,16 @@
 package com.ljl.vidanatural.fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ljl.vidanatural.R;
@@ -22,8 +22,8 @@ import com.ljl.vidanatural.model.PicResponse;
 import com.ljl.vidanatural.networks.PicManager;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,15 +31,14 @@ import retrofit2.Response;
 
 public class TelaPIC extends Fragment implements PicAdapter.PicListener {
 
-    private Button btnInformacoes;
-    private TextView txtNome;
     private List<Pic> mPics;
     private int mNext;
     private PicAdapter mPicAdapter;
+    private RecyclerView mRecyclerView;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_tela_pic, container, false);
     }
 
@@ -48,17 +47,20 @@ public class TelaPIC extends Fragment implements PicAdapter.PicListener {
 
     }
 
-        //criar adapter
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mPics = new ArrayList<>();
 
-        RecyclerView recyclerView = getActivity().findViewById(R.id.pic_recyclerview);
+        mRecyclerView = getActivity().findViewById(R.id.pic_recyclerview);
 
         mPicAdapter = new PicAdapter(mPics, this);
 
+        mRecyclerView.setAdapter(mPicAdapter);
+
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(layoutManager);
 
         carregarPics(0);
     }
@@ -73,7 +75,6 @@ public class TelaPIC extends Fragment implements PicAdapter.PicListener {
                 }else{
                     onWebServiceError(response.body().getMessage());
                 }
-
             }
 
             @Override
@@ -85,15 +86,13 @@ public class TelaPIC extends Fragment implements PicAdapter.PicListener {
     }
 
     private void onWebServiceResponse(ListaPics listaPics) {
-        mPics.addAll(listaPics.getPic());
         mNext = listaPics.getNext();
-        //resposta para o adapter para avisar que tem mais dados
+        mPics.addAll(listaPics.getPic());
         mPicAdapter.notifyDataSetChanged();
-
     }
 
     private void onWebServiceError(String mensagem) {
-
+        Toast.makeText(getActivity(), "Erro Web Service!", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -103,11 +102,22 @@ public class TelaPIC extends Fragment implements PicAdapter.PicListener {
         }else{
             Toast.makeText(getActivity(), "Fim da lista!", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     @Override
     public void onMaisInfoClick(Pic pic) {
-        Toast.makeText(getActivity(), "Chama Activity InfoPicActivity" + pic.getNome(), Toast.LENGTH_SHORT).show();
+
+        SharedPreferences preferences = Objects.requireNonNull(this.getActivity()).getSharedPreferences("preferencias", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = preferences.edit();
+
+        editor.putString("nome", pic.getNome());
+        editor.putString("desc", pic.getDescricao());
+        editor.putString("foto", pic.getFoto());
+
+        editor.apply();
+
+        Intent intent = new Intent(getActivity(), InfoPicActivity.class);
+        startActivity(intent);
     }
 }
