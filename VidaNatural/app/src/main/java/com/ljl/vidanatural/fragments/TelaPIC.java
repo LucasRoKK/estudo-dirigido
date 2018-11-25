@@ -106,18 +106,18 @@ public class TelaPIC extends Fragment implements PicAdapter.PicListener {
 
     @Override
     public void onMaisInfoClick(Pic pic) {
+        salvaDadosPic(pic);
+        Intent intent = new Intent(getActivity(), InfoPicActivity.class);
+        startActivity(intent);
+    }
 
-        SharedPreferences preferences = Objects.requireNonNull(this.getActivity()).getSharedPreferences("preferencias", Context.MODE_PRIVATE);
-
+    public void salvaDadosPic(Pic pic){
+        SharedPreferences preferences = Objects.requireNonNull
+                (this.getActivity()).getSharedPreferences("preferencias", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-
         editor.putString("nome", pic.getNome());
         editor.putString("desc", pic.getDescricao());
         editor.putString("foto", pic.getFoto());
-
         editor.apply();
-
-        Intent intent = new Intent(getActivity(), InfoPicActivity.class);
-        startActivity(intent);
     }
 }

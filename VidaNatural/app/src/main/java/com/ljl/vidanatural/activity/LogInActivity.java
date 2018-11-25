@@ -25,6 +25,8 @@ import com.ljl.vidanatural.R;
 import com.ljl.vidanatural.util.VerificadorUtil;
 import com.ljl.vidanatural.model.Perfil;
 
+import java.util.Objects;
+
 public class LogInActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     //Google
@@ -69,8 +71,6 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
             startActivityForResult(intent, SING_IN_CODE);
         });
 
-        // Sucesso ao efetuar login
-        VerificadorUtil.setLogado(this, true);
     }
 
 
@@ -100,9 +100,13 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
         mFirebaseAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()){
+
+                        VerificadorUtil.setLogado(this, true);
+
                         perfil.setNome(mFirebaseAuth.getCurrentUser().getDisplayName());
                         perfil.setEmail(mFirebaseAuth.getCurrentUser().getEmail());
                         perfil.setToken(mFirebaseAuth.getCurrentUser().getUid());
+
                         Intent i = new Intent(LogInActivity.this, TermoDeUsoActivity.class);
                         startActivity(i);
                     }else{
@@ -145,6 +149,7 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
 
     private void HandleSigInForResult(GoogleSignInResult result) {
         if(result.isSuccess()) {
+            VerificadorUtil.setLogado(this, true);
             goMainScreen();
         } else {
             Toast.makeText(this, R.string.not_log_in, Toast.LENGTH_SHORT).show();

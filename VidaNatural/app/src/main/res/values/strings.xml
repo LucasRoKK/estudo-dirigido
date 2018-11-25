@@ -6,8 +6,8 @@
     <string name="logoapp">Logo</string>
     <string name='login'>Login</string>
     <string name="title_activity_bairro">BairroActivity</string>
-    <string name="localiza_o_por_regi_es">LOCALIZAÇÃO POR REGIÕES</string>
-    <string name="informe_o_seu_bairro">INFORME O SEU BAIRRO</string>
+    <string name="localiza_o_por_regi_es">LOCALIZAÇÃO POR DISTRITO</string>
+    <string name="informe_o_seu_bairro">INFORME SEU DISTRITO</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

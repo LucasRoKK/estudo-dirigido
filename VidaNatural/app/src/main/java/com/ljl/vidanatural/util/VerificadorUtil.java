@@ -14,22 +14,16 @@ public class VerificadorUtil {
     private static final String PERFIL = "perfil";
 
     private VerificadorUtil() {
-        // vazio
     }
 
     public static void setLogado(Context context, boolean estaLogado) {
-        // Para salvar uma informacao no shared preferences
-        // Recebe como parametro: Nome do arquivo e modo de acesso
         SharedPreferences.Editor editor = context.getSharedPreferences(ARQUIVO_PREFERENCES, Context.MODE_PRIVATE).edit();
         editor.putBoolean(ESTA_LOGADO, estaLogado);
         editor.apply();
     }
 
     public static boolean getLogado(Context context) {
-        // Para recuperar um valor do shared preferences, só buscar pela chave
         SharedPreferences preferences = context.getSharedPreferences(ARQUIVO_PREFERENCES, Context.MODE_PRIVATE);
-
-        // Segundo parametro eh valor default caso nao ache a chave
         return preferences.getBoolean(ESTA_LOGADO, false);
     }
 
@@ -59,5 +53,10 @@ public class VerificadorUtil {
         Gson gson = new Gson();
         return  gson.fromJson(json, Perfil.class);
     }
-}
 
+
+
+
+
+
+}

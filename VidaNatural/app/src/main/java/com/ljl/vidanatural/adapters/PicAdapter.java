@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.ljl.vidanatural.R;
 import com.ljl.vidanatural.databinding.ItemPicBinding;
 import com.ljl.vidanatural.model.Pic;
 
@@ -60,8 +62,14 @@ public class PicAdapter extends RecyclerView.Adapter<PicAdapter.ViewHolder> {
                 mListener.onMaisInfoClick(pic);
             });
 
+            RequestOptions options = new RequestOptions()
+                    .centerCrop()
+                    .placeholder(R.mipmap.ic_launcher_round)
+                    .error(R.mipmap.ic_launcher_round);
+
             Glide.with(mBinding.getRoot())
                     .load(pic.getFoto())
+                    .apply(options)
                     .into(mBinding.picImgFoto);
 
             mBinding.setPic(pic);

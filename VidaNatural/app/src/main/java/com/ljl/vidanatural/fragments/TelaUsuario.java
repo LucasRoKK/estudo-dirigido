@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ljl.vidanatural.R;
 import com.ljl.vidanatural.activity.LogInActivity;
+import com.ljl.vidanatural.util.VerificadorUtil;
 
 public class TelaUsuario extends Fragment {
 
@@ -31,7 +32,6 @@ public class TelaUsuario extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_tela_usuario, container, false);
 
     }
@@ -46,7 +46,6 @@ public class TelaUsuario extends Fragment {
         inicializarFirebase();
         LogOut();
     }
-
 
     private void inicializarFirebase() {
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -67,16 +66,17 @@ public class TelaUsuario extends Fragment {
         txtEmail.setText(mFirebaseUser.getEmail());
     }
 
-
     private void LogOut() {
 
             btnLogout.setOnClickListener(v -> {
+                VerificadorUtil.setLogado(this.getContext(), false);
                 mFirebaseAuth.signOut();
                 LoginManager.getInstance().logOut();
                 Intent intent = new Intent(getActivity(), LogInActivity.class);
                 startActivity(intent);
             });
     }
+
 
     @Override
     public void onStart(){
