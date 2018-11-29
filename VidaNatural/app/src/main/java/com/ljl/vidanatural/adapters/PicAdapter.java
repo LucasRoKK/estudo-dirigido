@@ -43,7 +43,6 @@ public class PicAdapter extends RecyclerView.Adapter<PicAdapter.ViewHolder> {
     }
 
     public interface PicListener{
-        void onLoadMore();
         void onMaisInfoClick(Pic pic);
     }
 

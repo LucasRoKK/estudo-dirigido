@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +23,13 @@ import com.ljl.vidanatural.model.PicResponse;
 import com.ljl.vidanatural.networks.PicManager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -58,18 +63,30 @@ public class TelaPIC extends Fragment implements PicAdapter.PicListener {
 
         mRecyclerView.setAdapter(mPicAdapter);
 
+        carregarPics(0);
+
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
-
-        carregarPics(0);
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if(layoutManager.findLastCompletelyVisibleItemPosition() == mPics.size() -1){
+                    onLoadMore();
+                }
+            }
+        });
     }
 
     public void carregarPics(int next){
-        PicManager.service().listarPics(next).enqueue(new Callback<PicResponse>() {
+        RequestBody body = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(next));
+        Map<String, RequestBody> requestBodyMap = new HashMap<>();
+        requestBodyMap.put("next", body);
+
+        PicManager.service().getPics(requestBodyMap).enqueue(new Callback<PicResponse>() {
             @Override
             public void onResponse(Call<PicResponse> call, Response<PicResponse> response) {
-
                 if(response.body().getStatus() == 0 ){
                     onWebServiceResponse(response.body().getListaPics());
                 }else{
@@ -95,7 +112,6 @@ public class TelaPIC extends Fragment implements PicAdapter.PicListener {
         Toast.makeText(getActivity(), "Erro Web Service!", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
     public void onLoadMore() {
         if(mNext > 0){
             carregarPics(mNext);
