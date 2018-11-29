@@ -10,8 +10,6 @@ import com.ljl.vidanatural.activity.TermoDeUsoActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    //teste linux
-
     private static final String TAG = "App06";
 
     @Override

@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "221569880463-lcrfpth69v828e7ue9781rgsflg8oclc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ljl.vidanatural",
+            "certificate_hash": "a56be69951dd769a9d958bdbd495b672a9a938a5"
+          }
+        },
+        {
           "client_id": "221569880463-rdrjd4d4ua3j5psfnr009fvtr28fbmgt.apps.googleusercontent.com",
           "client_type": 3
         }
