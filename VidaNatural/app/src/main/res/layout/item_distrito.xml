@@ -5,9 +5,9 @@
     <!-- TODO: Update blank fragment layout -->
 
     <data>
-    <variable
-        name="pic"
-        type="com.ljl.vidanatural.model.Pic"/>
+        <variable
+            name="distrito"
+            type="com.ljl.vidanatural.model.Distrito"/>
     </data>
 
     <RelativeLayout
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.CardView
-            android:id="@+id/pic_cardview"
+            android:id="@+id/dist_cardview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -24,34 +24,25 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/pic_img_foto"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:src="@{pic.foto}" />
-
                 <TextView
-                    android:id="@+id/pic_txt_nome"
+                    android:id="@+id/dist_txt_nome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/pic_img_foto"
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:padding="8dp"
-                    android:text="@{pic.nome}"
+                    android:text="@{distrito.nome}"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/pic_btn_info"
+                    android:id="@+id/ditr_btn_sel"
                     android:layout_width="141dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/pic_txt_nome"
                     android:layout_alignParentEnd="true"
                     android:textSize="@dimen/font_small"
-                    android:text="Mais informações" />
+                    android:text="Selecione" />
 
             </RelativeLayout>
 

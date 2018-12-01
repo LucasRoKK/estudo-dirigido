@@ -1,6 +1,6 @@
 package com.ljl.vidanatural.networks;
 
-import com.ljl.vidanatural.model.PicResponse;
+import com.ljl.vidanatural.model.DistritoResponse;
 
 import java.util.Map;
 
@@ -10,8 +10,8 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PartMap;
 
-public interface PicServices {
+public interface DistritoServices {
     @Multipart
-    @POST("pic/read.php")
-    Call<PicResponse> getPics(@PartMap Map<String, RequestBody> params);
+    @POST("get_distritos.php")
+    Call<DistritoResponse> getDistritos(@PartMap Map<String, RequestBody> params);
 }

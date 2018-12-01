@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.ljl.vidanatural.R;
@@ -55,6 +56,9 @@ public class TelaPIC extends Fragment implements PicAdapter.PicListener {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        final ProgressBar progressBar = getActivity().findViewById(R.id.pic_progressbar);
+
         mPics = new ArrayList<>();
 
         mRecyclerView = getActivity().findViewById(R.id.pic_recyclerview);
@@ -65,6 +69,8 @@ public class TelaPIC extends Fragment implements PicAdapter.PicListener {
 
         carregarPics(0);
 
+        progressBar.setVisibility(View.VISIBLE);
+
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
@@ -74,6 +80,7 @@ public class TelaPIC extends Fragment implements PicAdapter.PicListener {
                 super.onScrolled(recyclerView, dx, dy);
                 if(layoutManager.findLastCompletelyVisibleItemPosition() == mPics.size() -1){
                     onLoadMore();
+                    progressBar.setVisibility(View.GONE);
                 }
             }
         });
