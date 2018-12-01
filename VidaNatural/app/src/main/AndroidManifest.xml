@@ -13,17 +13,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".util.MainActivity" >
+        <activity android:name=".util.MainActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.LogInActivity">
+        <activity android:name=".activity.LogInActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity android:name=".activity.TermoDeUsoActivity" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".activity.BairroActivity"
             android:label="@string/title_activity_bairro"
             android:theme="@style/AppTheme">
         </activity>
-        <activity android:name=".activity.HomeActivity">
+        <activity android:name=".activity.HomeActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -52,7 +56,8 @@
         <activity
             android:name=".activity.InfoPicActivity"
             android:label="@string/title_activity_info_pic"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
