@@ -16,7 +16,6 @@ import com.ljl.vidanatural.adapters.DistritoAdapter;
 import com.ljl.vidanatural.model.Distrito;
 import com.ljl.vidanatural.model.DistritoResponse;
 import com.ljl.vidanatural.model.ListaDistrito;
-import com.ljl.vidanatural.model.Pic;
 import com.ljl.vidanatural.networks.DistritoManager;
 
 import java.util.ArrayList;
@@ -38,7 +37,6 @@ public class DistritoActivity extends AppCompatActivity {
     private DistritoAdapter mDistritoAdapter;
     private int mNext;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +48,9 @@ public class DistritoActivity extends AppCompatActivity {
 
         mRecyclerView = findViewById(R.id.dist_recyclerview);
 
-        mDistritoAdapter = new DistritoAdapter(mDistrito, distrito -> {
-            proximaTela(distrito);
-        });
+        mDistritoAdapter = new DistritoAdapter(mDistrito, this::proximaTela);
 
-        carregarPics(0);
+        carregarDistritos(0);
 
         progressBar.setVisibility(View.VISIBLE);
 
@@ -76,7 +72,7 @@ public class DistritoActivity extends AppCompatActivity {
 
     }
 
-    public void carregarPics(int next){
+    public void carregarDistritos(int next){
         RequestBody body = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(next));
         Map<String, RequestBody> requestBodyMap = new HashMap<>();
         requestBodyMap.put("next", body);
@@ -112,7 +108,7 @@ public class DistritoActivity extends AppCompatActivity {
 
     public void onLoadMore() {
         if(mNext > 0){
-            carregarPics(mNext);
+            carregarDistritos(mNext);
         }else{
             Toast.makeText(this, "Fim da lista!", Toast.LENGTH_SHORT).show();
         }

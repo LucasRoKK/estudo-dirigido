@@ -8,17 +8,18 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.ljl.vidanatural.R;
-import com.ljl.vidanatural.databinding.ItemPicBinding;
+import com.ljl.vidanatural.activity.PicsDisponiveisActivity;
+import com.ljl.vidanatural.databinding.ItemPicDispBinding;
 import com.ljl.vidanatural.model.Pic;
 
 import java.util.List;
 
-public class PicAdapter extends RecyclerView.Adapter<PicAdapter.ViewHolder> {
+public class PicDispAdapter extends RecyclerView.Adapter<PicDispAdapter.ViewHolder>{
 
     private final List<Pic> mPics;
-    private final PicListener mListener;
+    private final PicDispListener mListener;
 
-    public PicAdapter(List<Pic> pics, PicListener listener){
+    public PicDispAdapter(List<Pic> pics, @NonNull PicDispListener listener){
         mPics = pics;
         mListener = listener;
     }
@@ -26,7 +27,7 @@ public class PicAdapter extends RecyclerView.Adapter<PicAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        ItemPicBinding binding = ItemPicBinding.inflate(layoutInflater, parent, false);
+        ItemPicDispBinding binding = ItemPicDispBinding.inflate(layoutInflater, parent, false);
         return new ViewHolder(binding);
     }
 
@@ -41,24 +42,20 @@ public class PicAdapter extends RecyclerView.Adapter<PicAdapter.ViewHolder> {
         return mPics.size();
     }
 
-    public interface PicListener{
-        void onMaisInfoClick(Pic pic);
+    public interface PicDispListener{
+
     }
 
     class ViewHolder extends RecyclerView.ViewHolder  {
 
-        private ItemPicBinding mBinding;
+        private ItemPicDispBinding mBinding;
 
-        public ViewHolder(ItemPicBinding binding) {
+        public ViewHolder(ItemPicDispBinding binding) {
             super(binding.getRoot());
             mBinding = binding;
         }
 
         void bind(Pic pic) {
-
-            mBinding.picBtnInfo.setOnClickListener(view -> {
-                mListener.onMaisInfoClick(pic);
-            });
 
             RequestOptions options = new RequestOptions()
                     .centerCrop()

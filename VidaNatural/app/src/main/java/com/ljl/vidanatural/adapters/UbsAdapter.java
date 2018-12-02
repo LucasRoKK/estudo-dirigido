@@ -8,56 +8,55 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.ljl.vidanatural.R;
-import com.ljl.vidanatural.databinding.ItemPicBinding;
-import com.ljl.vidanatural.model.Pic;
+import com.ljl.vidanatural.databinding.ItemMapaBinding;
+import com.ljl.vidanatural.model.Ubs;
 
 import java.util.List;
 
-public class PicAdapter extends RecyclerView.Adapter<PicAdapter.ViewHolder> {
+public class UbsAdapter extends RecyclerView.Adapter<UbsAdapter.ViewHolder> {
 
-    private final List<Pic> mPics;
-    private final PicListener mListener;
+    private final List<Ubs> mUbs;
+    private final UbsListener mListener;
 
-    public PicAdapter(List<Pic> pics, PicListener listener){
-        mPics = pics;
+    public UbsAdapter(List<Ubs> ubs, UbsListener listener){
+        mUbs = ubs;
         mListener = listener;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        ItemPicBinding binding = ItemPicBinding.inflate(layoutInflater, parent, false);
+        ItemMapaBinding binding = ItemMapaBinding.inflate(layoutInflater, parent, false);
         return new ViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Pic pic = mPics.get(position);
-        holder.bind(pic);
+        Ubs ubs = mUbs.get(position);
+        holder.bind(ubs);
     }
 
     @Override
-    public int getItemCount() {
-        return mPics.size();
+    public int getItemCount() { return mUbs.size();}
+
+    public interface UbsListener{
+
+        void onUbsSelecionada(Ubs ubs);
     }
 
-    public interface PicListener{
-        void onMaisInfoClick(Pic pic);
-    }
+    class ViewHolder extends RecyclerView.ViewHolder {
 
-    class ViewHolder extends RecyclerView.ViewHolder  {
+        private ItemMapaBinding mBinding;
 
-        private ItemPicBinding mBinding;
-
-        public ViewHolder(ItemPicBinding binding) {
+        public ViewHolder(ItemMapaBinding binding) {
             super(binding.getRoot());
             mBinding = binding;
         }
 
-        void bind(Pic pic) {
+        void bind(Ubs ubs) {
 
-            mBinding.picBtnInfo.setOnClickListener(view -> {
-                mListener.onMaisInfoClick(pic);
+            mBinding.mapaCardview.setOnClickListener(view -> {
+                mListener.onUbsSelecionada(ubs);
             });
 
             RequestOptions options = new RequestOptions()
@@ -66,11 +65,11 @@ public class PicAdapter extends RecyclerView.Adapter<PicAdapter.ViewHolder> {
                     .error(R.mipmap.ic_launcher_round);
 
             Glide.with(mBinding.getRoot())
-                    .load(pic.getFoto())
+                    .load(ubs.getFoto())
                     .apply(options)
-                    .into(mBinding.picImgFoto);
+                    .into(mBinding.mapaImgFoto);
 
-            mBinding.setPic(pic);
+            mBinding.setUbs(ubs);
             mBinding.executePendingBindings();
         }
     }

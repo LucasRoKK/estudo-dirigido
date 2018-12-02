@@ -18,8 +18,8 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
 
     private TelaUsuario mTela1;
-    private TelaPIC mTela2;
-    private TelaMapa mTela3;
+    private TelaMapa mTela2;
+    private TelaPIC mTela3;
     private PageAdapter mPageAdapter;
 
     @Override
@@ -28,8 +28,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         mTela1 = new TelaUsuario();
-        mTela2 = new TelaPIC();
-        mTela3 = new TelaMapa();
+        mTela2 = new TelaMapa();
+        mTela3 = new TelaPIC();
 
         List<Fragment> fragmentos = new ArrayList<>();
         fragmentos.add(mTela1);

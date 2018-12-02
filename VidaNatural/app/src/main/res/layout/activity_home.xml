@@ -21,12 +21,12 @@
             android:id="@+id/viewpager_tabs_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PIC"/>
+            android:text="Mapa"/>
         <android.support.design.widget.TabItem
             android:id="@+id/viewpager_tabs_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mapa"/>
+            android:text="PIC"/>
     </android.support.design.widget.TabLayout>
 
     <android.support.v4.view.ViewPager

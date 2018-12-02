@@ -25,8 +25,6 @@ import com.ljl.vidanatural.R;
 import com.ljl.vidanatural.util.VerificadorUtil;
 import com.ljl.vidanatural.model.Perfil;
 
-import java.util.Objects;
-
 public class LogInActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     //Google
