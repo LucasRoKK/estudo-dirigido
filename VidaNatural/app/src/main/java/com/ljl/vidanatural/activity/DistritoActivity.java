@@ -1,37 +1,29 @@
 package com.ljl.vidanatural.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.ljl.vidanatural.R;
 import com.ljl.vidanatural.adapters.DistritoAdapter;
-import com.ljl.vidanatural.adapters.PicAdapter;
 import com.ljl.vidanatural.model.Distrito;
 import com.ljl.vidanatural.model.DistritoResponse;
 import com.ljl.vidanatural.model.ListaDistrito;
-import com.ljl.vidanatural.model.PicResponse;
+import com.ljl.vidanatural.model.Pic;
 import com.ljl.vidanatural.networks.DistritoManager;
-import com.ljl.vidanatural.networks.DistritoServices;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -52,15 +44,19 @@ public class DistritoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_distrito);
 
+        final ProgressBar progressBar = findViewById(R.id.dist_progressbar);
+
         mDistrito = new ArrayList<>();
 
-        mRecyclerView = findViewById(R.id.pic_recyclerview);
+        mRecyclerView = findViewById(R.id.dist_recyclerview);
 
-        mDistritoAdapter = new DistritoAdapter(mDistrito, (DistritoAdapter.DistritoListener) this);
-
-        mRecyclerView.setAdapter(mDistritoAdapter);
+        mDistritoAdapter = new DistritoAdapter(mDistrito, distrito -> {
+            proximaTela(distrito);
+        });
 
         carregarPics(0);
+
+        progressBar.setVisibility(View.VISIBLE);
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -74,6 +70,9 @@ public class DistritoActivity extends AppCompatActivity {
                 }
             }
         });
+        progressBar.setVisibility(View.GONE);
+
+        mRecyclerView.setAdapter(mDistritoAdapter);
 
     }
 
@@ -120,10 +119,20 @@ public class DistritoActivity extends AppCompatActivity {
     }
 
 
-    public void proximaTela(){
-
+    public void proximaTela(Distrito distrito){
+        salvaDadosDist(distrito);
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
+
+    private void salvaDadosDist(Distrito distrito) {
+        SharedPreferences preferences = Objects.requireNonNull
+                (this.getSharedPreferences("dist", Context.MODE_PRIVATE));
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("nome", distrito.getNome());
+        editor.putString("id", distrito.getId());
+        editor.apply();
+    }
+
 }
 

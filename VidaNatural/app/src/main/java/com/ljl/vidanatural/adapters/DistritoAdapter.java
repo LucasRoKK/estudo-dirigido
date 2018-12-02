@@ -47,6 +47,7 @@ public class DistritoAdapter extends RecyclerView.Adapter<DistritoAdapter.ViewHo
 
     public interface DistritoListener{
         void onSelDistrito(Distrito distrito);
+
     }
 
     class ViewHolder extends RecyclerView.ViewHolder  {

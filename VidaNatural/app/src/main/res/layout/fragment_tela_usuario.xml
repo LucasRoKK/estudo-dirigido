@@ -36,14 +36,25 @@
         android:textAlignment="center"
         android:textSize="@dimen/font_large" />
 
+    <TextView
+        android:id="@+id/user_txt_dist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_txt_email"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="7dp"
+        android:textAlignment="center"
+        android:textSize="@dimen/font_large" />
+
     <Button
         android:id="@+id/user_btn_logout"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/user_txt_email"
+        android:layout_below="@+id/user_txt_dist"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="24dp"
         android:text="Sair" />
 
 </RelativeLayout>

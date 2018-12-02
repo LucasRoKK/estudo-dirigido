@@ -8,11 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/dist_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,6 +49,17 @@
                 android:text="@string/informe_o_seu_bairro"
                 android:textSize="@dimen/font_larger"
                 android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/dist_progressbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:indeterminate="true"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/dist_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
         </LinearLayout>
 

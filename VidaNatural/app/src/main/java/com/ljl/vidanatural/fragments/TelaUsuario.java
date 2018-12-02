@@ -1,6 +1,8 @@
 package com.ljl.vidanatural.fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -21,7 +23,7 @@ import com.ljl.vidanatural.util.VerificadorUtil;
 public class TelaUsuario extends Fragment {
 
     private Button btnLogout;
-    private TextView txtNome, txtEmail;
+    private TextView txtNome, txtEmail, txtDistrito;
     private ImageView imgUser;
 
     private FirebaseAuth mFirebaseAuth;
@@ -42,9 +44,16 @@ public class TelaUsuario extends Fragment {
         txtNome = view.findViewById(R.id.user_txt_nome);
         txtEmail = view.findViewById(R.id.user_txt_email);
         imgUser = view.findViewById(R.id.user_img_foto);
+        txtDistrito = view.findViewById(R.id.user_txt_dist);
 
+        dadosDistrito();
         inicializarFirebase();
         LogOut();
+    }
+
+    private void dadosDistrito() {
+        SharedPreferences preferences = getActivity().getSharedPreferences("dist", Context.MODE_PRIVATE);
+        txtDistrito.setText(preferences.getString("nome", null));
     }
 
     private void inicializarFirebase() {
@@ -59,6 +68,8 @@ public class TelaUsuario extends Fragment {
             }
         };
     }
+
+
 
     private void exibirDados(FirebaseUser mFirebaseUser) {
         Glide.with(TelaUsuario.this).load(mFirebaseUser.getPhotoUrl()).into(imgUser);
