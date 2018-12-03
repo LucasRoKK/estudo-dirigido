@@ -18,14 +18,20 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.LogInActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".activity.TermoDeUsoActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.DistritoActivity"
             android:label="@string/title_activity_bairro"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme">
+        </activity>
         <activity
             android:name=".activity.HomeActivity"
             android:screenOrientation="portrait"/>
@@ -60,10 +66,6 @@
             android:label="@string/title_activity_pics_disponiveis"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

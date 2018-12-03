@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.ljl.vidanatural.R;
 import com.ljl.vidanatural.activity.LogInActivity;
+import com.ljl.vidanatural.activity.PicsDisponiveisActivity;
 import com.ljl.vidanatural.adapters.UbsAdapter;
 import com.ljl.vidanatural.model.ListaUbs;
 import com.ljl.vidanatural.model.Ubs;
@@ -38,7 +39,7 @@ public class TelaMapa extends Fragment implements UbsAdapter.UbsListener  {
 
     private List<Ubs> mUbs;
     private int mNext;
-    private String mId;
+    private int mId;
     private UbsAdapter mUbsAdapter;
     private RecyclerView mRecyclerView;
 
@@ -68,9 +69,9 @@ public class TelaMapa extends Fragment implements UbsAdapter.UbsListener  {
 
         SharedPreferences preferences = getActivity().getSharedPreferences("id", Context.MODE_PRIVATE);
 
-        mId = preferences.getString("id", String.valueOf(Context.MODE_PRIVATE));
+        mId = Integer.valueOf(preferences.getString("id", String.valueOf(Context.MODE_PRIVATE)));
 
-        carregarUbs(0, "1");
+        carregarUbs(0, 1);
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -86,10 +87,10 @@ public class TelaMapa extends Fragment implements UbsAdapter.UbsListener  {
         });
     }
 
-    public void carregarUbs(int next, String id){
+    public void carregarUbs(int next, int id){
 
         RequestBody bodyNext = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(next));
-        RequestBody bodyId = RequestBody.create(MediaType.parse("text/plain"), id);
+        RequestBody bodyId = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(id));
         Map<String, RequestBody> requestBodyMap = new HashMap<>();
         requestBodyMap.put("next", bodyNext);
         requestBodyMap.put("distrito_id", bodyId);
@@ -123,14 +124,14 @@ public class TelaMapa extends Fragment implements UbsAdapter.UbsListener  {
 
     public void onLoadMore() {
         if(mNext > 0){
-            carregarUbs(mNext, mId);
+            carregarUbs(mNext, 1);
         }else{
             Toast.makeText(getActivity(), "Fim da lista!", Toast.LENGTH_SHORT).show();
         }
     }
 
     public void onUbsSelecionada(final Ubs ubs){
-        Intent intent = new Intent(getActivity(), LogInActivity.class);
+        Intent intent = new Intent(getActivity(), PicsDisponiveisActivity.class);
         startActivity(intent);
     }
 }

@@ -15,7 +15,7 @@ public class UbsResponse {
     @SerializedName("message")
     @Expose
     private String message;
-    @SerializedName("listaUbs")
+    @SerializedName("object")
     @Expose
     private ListaUbs listaUbs;
 

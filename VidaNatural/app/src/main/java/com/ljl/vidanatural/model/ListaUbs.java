@@ -10,7 +10,7 @@ public class ListaUbs {
     @SerializedName("next")
     @Expose
     private Integer next;
-    @SerializedName("ubs")
+    @SerializedName("array")
     @Expose
     private List<Ubs> ubs = null;
 
